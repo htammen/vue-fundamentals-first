@@ -1,0 +1,33 @@
+{
+  "name": "vue-fundamentals-first",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server  --inline --hot",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htammen/vue-fundamentals-first.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/htammen/vue-fundamentals-first/issues"
+  },
+  "homepage": "https://github.com/htammen/vue-fundamentals-first#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "vue-loader": "^15.4.2",
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "vue": "^2.5.21",
+    "vuex": "^3.0.1"
+  }
+}
