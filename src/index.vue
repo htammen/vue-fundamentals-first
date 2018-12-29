@@ -28,11 +28,11 @@
       <FdFormItem>
         <FdFormLabel>Rating</FdFormLabel>
         <FdCombobox v-model="newEntry.rating">
-          <FdMenuItem value="1" title="1">1</FdMenuItem>
-          <FdMenuItem value="2" title="2">2</FdMenuItem>
-          <FdMenuItem value="3" title="3">3</FdMenuItem>
-          <FdMenuItem value="4" title="4">4</FdMenuItem>
-          <FdMenuItem value="4" title="5">5</FdMenuItem>
+          <FdMenuItem value="1" title="1" @click="select('1')">1</FdMenuItem>
+          <FdMenuItem value="2" title="2" @click="select('2')">2</FdMenuItem>
+          <FdMenuItem value="3" title="3" @click="select('3')">3</FdMenuItem>
+          <FdMenuItem value="4" title="4" @click="select('4')">4</FdMenuItem>
+          <FdMenuItem value="4" title="5" @click="select('5')">5</FdMenuItem>
         </FdCombobox>
       </FdFormItem>
     </FdFormSet>
@@ -43,8 +43,11 @@
     module.exports = {
         methods: {
             addCurrentEntry() {
-                const tableEntry = { ...this.newEntry, building: null, rating: this.newEntry.rating.value };
+                const tableEntry = { ...this.newEntry, building: null, rating: this.newEntry.rating };
                 this.tableData.push(tableEntry);
+            },
+            select(value) {
+                this.newEntry.rating = value;
             },
         },
         data: function(){
