@@ -37,6 +37,7 @@
       </FdFormItem>
     </FdFormSet>
     <FdButton @click="addCurrentEntry">Add Entry</FdButton>
+    <FdButton @click="getRuntasticWorkouts">Get Workouts</FdButton>
   </div>
 </template>
 <script>
@@ -48,6 +49,13 @@
             },
             select(value) {
                 this.newEntry.rating = value;
+            },
+            getRuntasticWorkouts()  {
+//                var authenticate = require('runtastic-unofficial-api').authenticate
+//
+//                authenticate({email: "helmut.tammen@gmail.com", password: "M#RcHsiPBW5"})
+//                    .then((result) => console.log(result))
+//                     .catch((result) => console.log(result))
             },
         },
         data: function(){

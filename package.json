@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "fundamental-vue": "0.0.6-beta",
+    "runtastic-unofficial-api": "0.0.11",
     "vue": "^2.5.21",
     "vuex": "^3.0.1"
   }
