@@ -43,7 +43,7 @@ module.exports = {
         port: 9000, // Specify a port number to listen for requests on.
         disableHostCheck: true,
         inline: true,
-        host: '0.0.0.0',
+        //host: '0.0.0.0',
         //public: '9000-df1b279c-f0fd-474a-9024-a9a3d3f1d1d4.ws-eu.gitpod.io:443'
     },
     //performance: {

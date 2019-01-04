@@ -7,12 +7,12 @@
 <template>
   <div>
     <FdTable selectionMode="single" :data="tableData">
-      <FdTableColumn sortable prop="rating" label="Rating" />
-      <FdTableColumn sortable prop="firstName" label="First Name" />
-      <FdTableColumn sortable prop="lastName" label="Last Name" />
-      <FdTableColumn label="Initials">
+      <FdTableColumn sortable prop="id" label="Id" />
+      <FdTableColumn sortable prop="userId" label="User Id" />
+      <FdTableColumn sortable prop="title" label="Title" />
+      <FdTableColumn label="Body">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.firstName }}_{{ scope.row.lastName }}</span>
+          <span style="margin-left: 10px">{{ scope.row.body }}</span>
         </template>
       </FdTableColumn>
     </FdTable>
@@ -37,10 +37,56 @@
       </FdFormItem>
     </FdFormSet>
     <FdButton @click="addCurrentEntry">Add Entry</FdButton>
-    <FdButton @click="getRuntasticWorkouts">Get Workouts</FdButton>
+    <FdButton @click="getGithubData">Get Workouts</FdButton>
   </div>
 </template>
 <script>
+    import axios from 'axios';
+
+    export default {
+        data(){
+            return {
+            newEntry: {
+                firstName: null,
+                lastName: null,
+                rating: '1',
+            },
+            tableData: [
+            ],
+            };
+        },
+
+        methods: {
+
+            addCurrentEntry() {
+                const tableEntry = { ...this.newEntry, building: null, rating: this.newEntry.rating };
+                this.tableData.push(tableEntry);
+            },
+            select(value) {
+                this.newEntry.rating = value;
+            },
+            getGithubData() {
+              axios.get(`http://jsonplaceholder.typicode.com/posts`)
+              .then(response => {
+                // JSON responses are automatically parsed.
+                this.tableData = response.data
+              })
+              .catch(e => {
+                this.errors.push(e)
+              })
+
+            },
+            getRuntasticWorkouts()  {
+//                var authenticate = require('runtastic-unofficial-api').authenticate
+//
+//                authenticate({email: "helmut.tammen@gmail.com", password: "M#RcHsiPBW5"})
+//                    .then((result) => console.log(result))
+//                     .catch((result) => console.log(result))
+            },
+        }
+    }
+
+/*
     module.exports = {
         methods: {
             addCurrentEntry() {
@@ -49,6 +95,17 @@
             },
             select(value) {
                 this.newEntry.rating = value;
+            },
+            getGithubData() {
+              axios.get(`http://jsonplaceholder.typicode.com/posts`)
+              .then(response => {
+                // JSON responses are automatically parsed.
+                this.posts = response.data
+              })
+              .catch(e => {
+                this.errors.push(e)
+              })
+
             },
             getRuntasticWorkouts()  {
 //                var authenticate = require('runtastic-unofficial-api').authenticate
@@ -74,4 +131,6 @@
             };
         },
     }
+*/
+
 </script>
